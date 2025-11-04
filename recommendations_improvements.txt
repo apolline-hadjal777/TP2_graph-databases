@@ -1,0 +1,12 @@
+1. Recommendation Strategy
+
+We could implement a hybrid strategy combining collaborative filtering and popular products. 
+Filtering allows for personalized recommendations depending on each user: collaborative filtering identifies customers with similar purchase patterns (using the graph to find common purchases), and the algorithm recommends products purchased by these similar customers. Additionally, we could set up filtering to recommend products to customers based on categories they have already purchased from.
+Adding the recommendations based on overall trending products (data from across all customers, based on total sold and order frequency) is less personalized but widens the scope of recommendations, and solves the cold-start problem for new customers.
+
+2. Improvements
+
+There are multiple improvements we could make:
+- Data Loading: Implementing incremental ETL with Change Data Capture instead of full data reloads to handle real-time updates efficiently. Also, adding a Redis caching layer for frequently-accessed recommendations to reduce database load and improve response times. 
+- Security, Scalability: Implementing JWT-based authentication (role-based) to secure the API, and deploying using Kubernetes for container orchestration, enabling auto-scaling and high availability.
+- Recommendations: Setting up A/B testing to compare and optimize different recommendation strategies. Adding advanced machine learning models (ex: matrix factorization) for further personalized recommendations.
